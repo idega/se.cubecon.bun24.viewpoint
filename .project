@@ -9,6 +9,7 @@
     <project>com.idega.block.process</project>
     <project>se.idega.util</project>
     <project>se.idega.idegaweb.commune</project>
+    <project>com.idega.block.web2.0</project>
   </projects>
   <buildSpec>
     <buildCommand>
