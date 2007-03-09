@@ -5,9 +5,9 @@
   </classpathentry>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
   </classpathentry>
-  <classpathentry kind="src" path="/com.idega.core">
+  <classpathentry kind="var" path="MAVEN_REPO/bundles/jars/com.idega.core-3.1.39.jar">
   </classpathentry>
-  <classpathentry kind="src" path="/com.idega.block.process">
+  <classpathentry kind="var" path="MAVEN_REPO/bundles/jars/com.idega.block.process-3.1.11.jar">
   </classpathentry>
   <classpathentry kind="src" path="/se.idega.util">
   </classpathentry>
@@ -39,7 +39,7 @@
   </classpathentry>
   <classpathentry kind="var" path="MAVEN_REPO/jta/jars/jta-spec1_0_1.jar">
   </classpathentry>
-  <classpathentry kind="src" path="/com.idega.block.web2.0">
+  <classpathentry kind="var" path="MAVEN_REPO/bundles/jars/com.idega.block.web2.0-3.1.4.jar">
   </classpathentry>
   <classpathentry kind="output" path="target/classes">
   </classpathentry>
