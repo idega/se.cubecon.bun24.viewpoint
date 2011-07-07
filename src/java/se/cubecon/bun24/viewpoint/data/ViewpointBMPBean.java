@@ -2,10 +2,14 @@ package se.cubecon.bun24.viewpoint.data;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
 import javax.ejb.FinderException;
+
 import com.idega.block.process.data.AbstractCaseBMPBean;
 import com.idega.block.process.data.Case;
 import com.idega.block.process.data.CaseBMPBean;
+import com.idega.data.IDOAddRelationshipException;
+import com.idega.data.IDORemoveRelationshipException;
 import com.idega.user.data.Group;
 import com.idega.user.data.User;
 
@@ -16,10 +20,10 @@ import com.idega.user.data.User;
  * @version $Revision: 1.19 $
  */
 public class ViewpointBMPBean extends AbstractCaseBMPBean implements Viewpoint, Case {
-	
+
 	public static final String CASE_CODE_KEY = "SYMESYN";
 	public static final String STATUSKEY_ANSWERED = "ASWD";
-	
+
     private static final String ENTITY_NAME = "vp_viewpoint";
     private static final String CASE_CODE_DESCRIPTION = "User viewpoint";
 	private static final String [] CASE_STATUS_DESCRIPTIONS = { "Answered" };
@@ -36,32 +40,39 @@ public class ViewpointBMPBean extends AbstractCaseBMPBean implements Viewpoint, 
     private static final String COLUMN_USERNAME = "INITIATERNAME";
     private static final String COLUMN_USEREMAIL = "INITIATEREMAIL";
     private static final String COLUMN_ANSWERDATE = "ANSWERDATE";
-    
+
+	@Override
 	public String getEntityName() {
 		return ENTITY_NAME;
 	}
 
+	@Override
 	public String getCaseCodeKey() {
 		return CASE_CODE_KEY;
 	}
 
-    public String getCaseCodeDescription () {
+    @Override
+	public String getCaseCodeDescription () {
         return CASE_CODE_DESCRIPTION;
     }
 
-    public String [] getCaseStatusKeys () {
+    @Override
+	public String [] getCaseStatusKeys () {
         return CASE_STATUS_KEYS;
     }
 
-    public String [] getCaseStatusDescriptions () {
+    @Override
+	public String [] getCaseStatusDescriptions () {
         return CASE_STATUS_DESCRIPTIONS;
     }
 
-    public void insertStartData () {
+    @Override
+	public void insertStartData () {
         super.insertStartData ();
     }
 
-    public void initializeAttributes () {
+    @Override
+	public void initializeAttributes () {
 		addGeneralCaseRelation();
 		addAttribute (COLUMN_CATEGORY, "Category", String.class);
        	addAttribute (COLUMN_USER_ID, "User", true, true, Integer.class,
@@ -84,7 +95,8 @@ public class ViewpointBMPBean extends AbstractCaseBMPBean implements Viewpoint, 
 		return getStringColumnValue (COLUMN_CATEGORY);
     }
 
-    public String getSubject () {
+    @Override
+	public String getSubject () {
 		return getStringColumnValue (COLUMN_SUBJECT);
     }
 
@@ -136,7 +148,8 @@ public class ViewpointBMPBean extends AbstractCaseBMPBean implements Viewpoint, 
 		setColumn (COLUMN_CATEGORY, category);
     }
 
-    public void setSubject (final String subject) {
+    @Override
+	public void setSubject (final String subject) {
 		setColumn (COLUMN_SUBJECT, subject);
     }
 
@@ -190,4 +203,20 @@ public class ViewpointBMPBean extends AbstractCaseBMPBean implements Viewpoint, 
         final Collection viewpoints = idoFindPKsBySQL (sql.toString ());
         return viewpoints;
     }
+
+	public void addSubscriber(User arg0) throws IDOAddRelationshipException {
+		// TODO Auto-generated method stub
+
+	}
+
+	public Collection<User> getSubscribers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void removeSubscriber(User arg0)
+			throws IDORemoveRelationshipException {
+		// TODO Auto-generated method stub
+
+	}
 }
